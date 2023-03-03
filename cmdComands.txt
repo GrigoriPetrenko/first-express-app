@@ -1,8 +1,0 @@
-npm init
-
-Add hot reload:
-npm i -D nodemon
-https://www.npmjs.com/package/nodemon
-
-
-npm i express
