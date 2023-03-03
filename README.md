@@ -11,25 +11,12 @@ Before you can run this app, you'll need to have the following installed on your
 
 ## Installation
 
-To install the dependencies for this app, run:
-
-
-# Node.js App
-
-This is a sample Node.js app.
-
-## Prerequisites
-
-Before you can run this app, you'll need to have the following installed on your machine:
-
-- Node.js
-- npm (Node Package Manager)
-
-## Installation
-
 To install the dependencies for this app, in the project directory run:
+
 `npm install`
-Then 
+
+- Then 
+
 `npm start`
 
 
