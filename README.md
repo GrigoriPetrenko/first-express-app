@@ -19,6 +19,9 @@ To install the dependencies for this app, in the project directory run:
 
 `npm start`
 
+- To start with "Nodemon"
+
+`npm run dev`
 
 The app will be available at [http://localhost:5000].
 
