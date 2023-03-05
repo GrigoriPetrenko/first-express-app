@@ -6,21 +6,46 @@ module.exports.getContacts = (req, res) => {
 };
 
 module.exports.createContact = (req, res) => {
-    const { body } = req;
+  const { body } = req;
+
   const createdContact = ContactDB.createContact(body);
   res.status(201).send(createdContact);
 };
 
 module.exports.getContactById = (req, res) => {
-    const {id} = req.params;
+  const { id } = req.params;
 
-  // перевірити, чи є контакт з заданим id
   const foundContact = ContactDB.getContactById(id);
+
   if (foundContact) {
-    // якщо є, то 200 і відправити
-    res.status(200).send(foundContact);
-  } else {
-    // якщо нема, то 404 Contact Not Found
-    res.status(404).send('Contact Not Found');
+    return res.status(200).send(foundContact);
   }
+  res.status(404).send('Contact Not Found');
+};
+
+module.exports.updateContactById = (req, res) => {
+  const {
+    params: { id },
+    body,
+  } = req;
+
+  const updatedContact = ContactDB.updateContact(id, body);
+
+  if (updatedContact) {
+    return res.status(200).send(updatedContact);
+  }
+  res.status(404).send('Contact Not Found');
+};
+
+module.exports.deleteContactById = (req, res) => {
+  const {
+    params: { id },
+  } = req;
+
+  const deleteContact = ContactDB.deleteContact(id);
+
+  if (deleteContact) {
+    return res.status(204).send();
+  }
+  res.status(404).send('Not Found');
 };
