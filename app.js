@@ -1,7 +1,7 @@
 const express = require('express');
-
-const { validate } = require('./middleware');
+const { validate, errorHandlers } = require('./middleware');
 const { contactsController } = require('./controllers');
+const { ValidationError } = require('yup');
 
 const app = express();
 
@@ -42,5 +42,7 @@ app.patch(
 // реалізувати endpoint для видалення конкретного контакту
 // DELETE /contacts/5
 app.delete('/contacts/:id', contactsController.deleteContactById);
+
+app.use(errorHandlers.validationErrorHandler, errorHandlers.errorHandler);
 
 module.exports = app;
