@@ -6,6 +6,7 @@ const { ContactDB } = require('./../models')
 module.exports.getContacts = (req, res) => {
   const { page = 1, results = 5 } = req.query
   const contacts = ContactDB.getContacts(page, results)
+
   res.status(200).send(contacts)
 }
 
